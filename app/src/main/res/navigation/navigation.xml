@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation"
+            app:startDestination="@id/autocompleteFragment">
+
+    <fragment
+            android:id="@+id/autocompleteFragment"
+            android:name="com.android.ubility_android.AutocompleteFragment"
+            android:label="AutocompleteFragment">
+        <action
+                android:id="@+id/action_autocompleteFragment_to_placeFragment"
+                app:destination="@id/placeFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/placeFragment"
+            android:name="com.android.ubility_android.PlaceFragment"
+            android:label="place_fragment"
+            tools:layout="@layout/place_fragment"/>
+</navigation>

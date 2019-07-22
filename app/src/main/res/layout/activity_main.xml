@@ -7,46 +7,50 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <View
-            android:id="@+id/main-background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/background_gradient"/>
-
-    <TextView
-            android:id="@+id/main-title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            style="@style/Material.Dark.Head"
-            app:layout_constraintBottom_toTopOf="@id/title-description"
-            app:layout_constraintLeft_toLeftOf="@id/main-background"
-            app:layout_constraintRight_toRightOf="@id/main-background"
-            app:layout_constraintTop_toTopOf="@id/main-background"
-            />
-
-    <TextView
-            android:id="@+id/title-description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/app_description"
-            style="@style/Material.Dark.Body"
-            android:gravity="center_horizontal"
-            app:layout_constraintBottom_toBottomOf="@id/main-background"
-            app:layout_constraintLeft_toLeftOf="@id/main-background"
-            app:layout_constraintRight_toRightOf="@id/main-background"
-            app:layout_constraintTop_toBottomOf="@id/main-title"
-            />
-
     <fragment
             android:id="@+id/nav_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"/>
+            app:defaultNavHost="true"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!--<View-->
+            <!--android:id="@+id/main-background"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--android:background="@drawable/background_gradient"/>-->
+
+    <!--<TextView-->
+            <!--android:id="@+id/main-title"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/app_name"-->
+            <!--style="@style/Material.Dark.Head"-->
+            <!--app:layout_constraintBottom_toTopOf="@id/title-description"-->
+            <!--app:layout_constraintLeft_toLeftOf="@id/main-background"-->
+            <!--app:layout_constraintRight_toRightOf="@id/main-background"-->
+            <!--app:layout_constraintTop_toTopOf="@id/main-background"-->
+            <!--/>-->
+
+    <!--<TextView-->
+            <!--android:id="@+id/title-description"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/app_description"-->
+            <!--style="@style/Material.Dark.Body"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--app:layout_constraintBottom_toBottomOf="@id/main-background"-->
+            <!--app:layout_constraintLeft_toLeftOf="@id/main-background"-->
+            <!--app:layout_constraintRight_toRightOf="@id/main-background"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/main-title"-->
+            <!--/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
