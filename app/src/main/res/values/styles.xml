@@ -8,4 +8,40 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--Material Styles, these are ideal android designs. -->
+    <!--There is a way to actually link the Material resources to the app theme, but I couldn't figure it out. -->
+    <!--Thus, the ones I wanted are just inserted here-->
+    <!--Text styles defined in zeplin designs:-->
+
+    <!--These 3 are needed to allow for the full titles like Material.Light.Subhead, error without them-->
+    <style name="Material" />
+    <style name="Material.Light" />
+    <style name="Material.Dark" />
+
+    <!--Bold, 36sp, Black:-->
+    <style name="Material.Light.Head">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_material_head</item>
+        <item name="android:textColor">@color/app_purple</item>
+    </style>
+
+    <!--Bold, 36sp, White:-->
+    <style name="Material.Dark.Head">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/text_size_material_head</item>
+        <item name="android:textColor">@color/app_white</item>
+    </style>
+
+    <!--Regular, 16sp, White:-->
+    <style name="Material.Dark.Body">
+        <item name="android:textSize">@dimen/text_size_material_body</item>
+        <item name="android:textColor">@color/app_white</item>
+    </style>
+
+    <!--Regular, 16sp, Black:-->
+    <style name="Material.Light.Body">
+        <item name="android:textSize">@dimen/text_size_material_body</item>
+        <item name="android:textColor">@color/app_purple</item>
+    </style>
+
 </resources>

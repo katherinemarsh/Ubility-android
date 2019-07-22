@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <!--Primary colors-->
+    <color name="colorPrimary">@color/app_blue</color>
+    <color name="colorPrimaryDark">@color/app_purple</color>
+    <color name="colorAccent">@color/app_red</color>
+
+    <!--Color palette -->
+    <color name="app_white">#ffffff</color>
+    <color name="app_gray">#e5e7fc</color>
+    <color name="app_blue">#5c7fff</color>
+    <color name="app_blue_medium">#3e40b7</color>
+    <color name="app_purple">#382366</color>
+    <color name="app_orange">#fe826a</color>
+    <color name="app_orange_medium">#f35a5d</color>
+    <color name="app_peach">#f59f9e</color>
+    <color name="app_red">#e53c59</color>
+
+    <!--Gradient colors:-->
+    <color name="gradient_light">@color/app_blue_medium</color>
+    <color name="gradient_dark">@color/app_purple</color>
 </resources>

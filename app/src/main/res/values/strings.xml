@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ubility-android</string>
+    <string name="app_name">Ubility</string>
+    <string name="app_description">Find, rate, and review accessibility standards of local establishments.</string>
 </resources>
