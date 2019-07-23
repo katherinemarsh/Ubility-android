@@ -2,20 +2,17 @@ package com.android.ubility_android
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.common.api.Status
 import com.google.android.libraries.places.api.model.Place
-import com.google.android.libraries.places.widget.AutocompleteSupportFragment
-import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import java.util.*
-import com.google.android.libraries.places.internal.i
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment as AutocompleteSupportFragment
 
 
-class AutocompleteFragment : AutocompleteSupportFragment(), AutocompleteNavigator {
+class AutocompleteFragment : Fragment(), AutocompleteNavigator {
 
     private lateinit var viewModel: AutocompleteViewModel
 
@@ -36,8 +33,10 @@ class AutocompleteFragment : AutocompleteSupportFragment(), AutocompleteNavigato
 //        will allow navigation from within viewmodel
         viewModel.navigator = this
 
+        val libraryAutocompleteFrag= this.childFragmentManager.findFragmentById(R.id.lib_autocomplete_fragment) as AutocompleteSupportFragment
+
         // setting up the type of data we want to return
-        this.apply {
+        libraryAutocompleteFrag.apply {
             setPlaceFields(
                 Arrays.asList(
                     Place.Field.NAME,
@@ -49,7 +48,7 @@ class AutocompleteFragment : AutocompleteSupportFragment(), AutocompleteNavigato
         }
 
         // passing VM here, and making sure it implements PlaceSelectionListener
-        this.setOnPlaceSelectedListener(viewModel)
+        libraryAutocompleteFrag.setOnPlaceSelectedListener(viewModel)
 
 //        // Set up a PlaceSelectionListener to handle the response.
 //        This is how it would be done if we didn't have the viewmodel
