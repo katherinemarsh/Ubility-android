@@ -18,30 +18,26 @@ import com.google.android.libraries.places.internal.i
 
 
 class AutocompleteFragment : AutocompleteSupportFragment(), AutocompleteNavigator {
-    override fun navigateToPlace() {
-//        viewTransactionsButton.setOnClickListener { view ->
-//            view.findNavController().navigate(R.id.viewTransactionsAction)
-//        }
-        this.findNavController().navigate(R.id.action_autocompleteFragment_to_placeFragment)
-    }
 
     private lateinit var viewModel: AutocompleteViewModel
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AutocompleteViewModel::class.java)
+
+        viewModel = activity?.run {
+            ViewModelProviders.of(this)[AutocompleteViewModel::class.java]
+        } ?: throw Exception("Invalid Activity")
 
 //        will allow navigation from within viewmodel
         viewModel.navigator = this
 
         // setting up the type of data we want to return
         this.apply {
-            setPlaceFields(Arrays.asList(Place.Field.ID))
+            setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME))
         }
 
         // passing VM here, and making sure it implements PlaceSelectionListener
         this.setOnPlaceSelectedListener(viewModel)
-
 
 //        // Set up a PlaceSelectionListener to handle the response.
 //        This is how it would be done if we didn't have the viewmodel
@@ -53,5 +49,12 @@ class AutocompleteFragment : AutocompleteSupportFragment(), AutocompleteNavigato
 //            override fun onError(p0: Status) {
 //            }
 //        })
+    }
+
+    override fun navigateToPlace() {
+//        viewTransactionsButton.setOnClickListener { view ->
+//            view.findNavController().navigate(R.id.viewTransactionsAction)
+//        }
+        this.findNavController().navigate(R.id.action_autocompleteFragment_to_placeFragment)
     }
 }
