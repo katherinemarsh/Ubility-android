@@ -15,11 +15,16 @@ import java.util.*
 import com.google.android.libraries.places.internal.i
 
 
-
-
 class AutocompleteFragment : AutocompleteSupportFragment(), AutocompleteNavigator {
 
     private lateinit var viewModel: AutocompleteViewModel
+
+    override fun onCreateView(p0: LayoutInflater, p1: ViewGroup?, p2: Bundle?): View? {
+        super.onCreateView(p0, p1, p2)
+        val rootView = p0.inflate(R.layout.fragment_autocomplete, p1, false);
+        return rootView
+
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -33,7 +38,14 @@ class AutocompleteFragment : AutocompleteSupportFragment(), AutocompleteNavigato
 
         // setting up the type of data we want to return
         this.apply {
-            setPlaceFields(Arrays.asList(Place.Field.ID, Place.Field.NAME))
+            setPlaceFields(
+                Arrays.asList(
+                    Place.Field.NAME,
+                    Place.Field.ADDRESS,
+                    Place.Field.OPENING_HOURS,
+                    Place.Field.PHOTO_METADATAS
+                )
+            )
         }
 
         // passing VM here, and making sure it implements PlaceSelectionListener
