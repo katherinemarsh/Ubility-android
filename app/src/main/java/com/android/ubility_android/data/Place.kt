@@ -2,5 +2,6 @@ package com.android.ubility_android.data
 
 import android.graphics.Bitmap
 
-data class Place(val name: String?,
-                 val address: String?)
+data class Place(var name: String?,
+                 var address: String?,
+                 var image: Bitmap?)

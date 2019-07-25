@@ -13,16 +13,27 @@ import com.google.android.gms.common.api.ApiException
 import android.provider.MediaStore.Images.Media.getBitmap
 import com.google.android.libraries.places.api.net.FetchPhotoRequest
 import com.google.android.libraries.places.api.net.FetchPlaceRequest
+import com.google.android.libraries.places.api.Places
+import com.google.android.libraries.places.api.net.PlacesClient
+import android.R.attr.apiKey
+import android.app.Application
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.widget.ImageView
+import androidx.lifecycle.AndroidViewModel
+import androidx.databinding.BindingAdapter
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.libraries.places.api.net.FetchPhotoResponse
 
 
-
-class AutocompleteViewModel : ViewModel(), PlaceSelectionListener {
+class AutocompleteViewModel(application: Application) : AndroidViewModel(application), PlaceSelectionListener {
 
     var navigator: AutocompleteNavigator? = null
-    // The current score
-//    private val _name = MutableLiveData<String>()
-//    val name: LiveData<String>
-//        get() = _name
+    val successListener: OnSuccessListener<FetchPhotoResponse> = OnSuccessListener {
+        val newPlace = _myPlace.value
+        newPlace?.image = it.bitmap
+        _myPlace.value = newPlace
+    }
 
     private val _myPlace = MutableLiveData<com.android.ubility_android.data.Place>()
     val myPlace: LiveData<com.android.ubility_android.data.Place>
@@ -37,29 +48,27 @@ class AutocompleteViewModel : ViewModel(), PlaceSelectionListener {
     }
 
     override fun onPlaceSelected(p0: Place) {
+        _myPlace.value = com.android.ubility_android.data.Place(p0.name, p0.address, null)
+        getPlacePhoto(p0.photoMetadatas?.get(0))
+
         navigator?.navigateToPlace()
-        var editPlace = com.android.ubility_android.data.Place(p0.name, p0.address)
-        _myPlace.value = editPlace
     }
 
-//    private fun getPlacePhoto(pm: PhotoMetadata): Bitmap {
-//        // Get the photo metadata.
-//        val photoMetadata = pm
-//
-//        // Get the attribution text.
-//        val attributions = photoMetadata.attributions
-//
-//        // Create a FetchPhotoRequest.
-//        val photoRequest = FetchPhotoRequest.builder(photoMetadata)
-//            .setMaxWidth(500) // Optional.
-//            .setMaxHeight(300) // Optional.
-//            .build()
-//        placesClient.fetchPhoto(photoRequest).addOnSuccessListener({ fetchPhotoResponse: FetchPhotoRequest ->
-//            val bitmap = fetchPhotoResponse.getBitmap()
-////            imageView.setImageBitmap(bitmap)
-//        }).addOnFailureListener({ exception ->
-//            //do stuff
-//        })
-//        return null
-//    }
+    private fun getPlacePhoto(pm: PhotoMetadata?) {
+
+        // Create a FetchPhotoRequest.
+        val photoRequest = FetchPhotoRequest.builder(pm!!)
+                .setMaxWidth(500) // Optional.
+                .setMaxHeight(300) // Optional.
+                .build()
+
+        // Create a new Places client instance
+        val placesClient = Places.createClient(getApplication())
+        placesClient.fetchPhoto(photoRequest).addOnSuccessListener(successListener)
+//        we receive the request, and then it goes to the on success listener
+//        the problem with that is that the request can take a long time
+//        most likely taking so long that the successListener instance (if created in here)
+//        would no longer exist at the point once the bitmap is received from the places api
+//        thus, we need to add the on success listener instance outside of this function
+    }
 }

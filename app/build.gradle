@@ -2,6 +2,9 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
+//need this for kotlin annotations
+apply plugin: 'kotlin-kapt'
+
 apply plugin: 'kotlin-android-extensions'
 
 //added this to get safe args with navigation
