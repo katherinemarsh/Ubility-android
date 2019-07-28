@@ -4,4 +4,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_review">Add Review</string>
+    <string name="no_reviews">No Reviews.</string>
+    <string name="next_button">NEXT</string>
+    <string name="submit_button">Submit</string>
+    <string name="review_desc_directions">Provide a description of your experience.</string>
+    <string name="review_desc_example">Ex. While the food was delicious, the front entrance had 5 large steps leading up to it. I had to call to get help going into the back entrance through the kitchen. I will say the staff was amazing and accomodating.</string>
 </resources>

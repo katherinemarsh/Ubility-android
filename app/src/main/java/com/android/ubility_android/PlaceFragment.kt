@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.android.ubility_android.databinding.PlaceFragmentBinding
+import kotlinx.android.synthetic.main.place_fragment.*
 
 class PlaceFragment : Fragment() {
 
@@ -41,4 +43,11 @@ class PlaceFragment : Fragment() {
         return binding.root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        add_review_button.setOnClickListener {
+            it.findNavController().navigate(R.id.action_placeFragment_to_reviewDescriptionFragment2)
+        }
+    }
 }

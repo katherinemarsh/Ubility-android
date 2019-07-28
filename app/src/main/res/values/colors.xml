@@ -15,6 +15,8 @@
     <color name="app_orange_medium">#f35a5d</color>
     <color name="app_peach">#f59f9e</color>
     <color name="app_red">#e53c59</color>
+    <color name="app_black">#000000</color>
+
 
     <!--Gradient colors:-->
     <color name="gradient_light">@color/app_blue_medium</color>

@@ -17,5 +17,33 @@
             android:id="@+id/placeFragment"
             android:name="com.android.ubility_android.PlaceFragment"
             android:label="place_fragment"
-            tools:layout="@layout/place_fragment"/>
+            tools:layout="@layout/place_fragment">
+        <action
+                android:id="@+id/action_placeFragment_to_reviewDescriptionFragment2"
+                app:destination="@id/reviewDescriptionFragment2"/>
+    </fragment>
+    <fragment
+            android:id="@+id/reviewDescriptionFragment2"
+            android:name="com.android.ubility_android.ReviewDescriptionFragment"
+            android:label="ReviewDescriptionFragment">
+        <action
+                android:id="@+id/action_reviewDescriptionFragment2_to_reviewFeatureFragment2"
+                app:destination="@id/reviewFeatureFragment2"/>
+    </fragment>
+    <fragment
+            android:id="@+id/reviewFeatureFragment2"
+            android:name="com.android.ubility_android.ReviewFeatureFragment"
+            android:label="ReviewFeatureFragment">
+        <action
+                android:id="@+id/action_reviewFeatureFragment2_to_reviewPhotoFragment"
+                app:destination="@id/reviewPhotoFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/reviewPhotoFragment"
+            android:name="com.android.ubility_android.ReviewPhotoFragment"
+            android:label="ReviewPhotoFragment">
+        <action
+                android:id="@+id/action_reviewPhotoFragment_to_placeFragment"
+                app:destination="@id/placeFragment"/>
+    </fragment>
 </navigation>

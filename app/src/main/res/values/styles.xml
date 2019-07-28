@@ -32,6 +32,12 @@
         <item name="android:textColor">@color/app_white</item>
     </style>
 
+    <!--Regular, 24sp, Black:-->
+    <style name="Material.Light.Head2">
+        <item name="android:textSize">@dimen/text_size_material_head2</item>
+        <item name="android:textColor">@color/app_purple</item>
+    </style>
+
     <!--Regular, 16sp, White:-->
     <style name="Material.Dark.Body">
         <item name="android:textSize">@dimen/text_size_material_body</item>
