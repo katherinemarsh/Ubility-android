@@ -10,4 +10,6 @@
     <string name="submit_button">Submit</string>
     <string name="review_desc_directions">Provide a description of your experience.</string>
     <string name="review_desc_example">Ex. While the food was delicious, the front entrance had 5 large steps leading up to it. I had to call to get help going into the back entrance through the kitchen. I will say the staff was amazing and accomodating.</string>
+    <string name="review_feature_directions">Select any of the following characteristics that apply to your selected location.</string>
+    <string name="review_photo_directions">Submit your review or click below to add photos from your camera roll.</string>
 </resources>
