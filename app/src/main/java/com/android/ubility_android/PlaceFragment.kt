@@ -8,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.ubility_android.databinding.PlaceFragmentBinding
 import kotlinx.android.synthetic.main.place_fragment.*
+import kotlinx.android.synthetic.main.reviews_list_page.*
 
 class PlaceFragment : Fragment() {
 

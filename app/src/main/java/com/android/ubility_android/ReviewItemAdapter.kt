@@ -12,22 +12,22 @@ class ReviewItemAdapter: RecyclerView.Adapter<ReviewItemAdapter.ViewHolder>() {
     override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ReviewItemAdapter.ViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        holder.update(position)
     }
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
-        val view = LayoutInflater.from(p0.context).inflate(R.layout.note_row, p0, false)
+        val view = LayoutInflater.from(p0.context).inflate(R.layout.review_list_item, p0, false)
         return ViewHolder(view)
     }
 
 
-
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView = view.findViewById<TextView>(R.id.textView)
+        val textView = view.findViewById<TextView>(R.id.reviewListDescription)
 
         fun update(index: Int) {
             textView.text = list[index]
         }
     }
 
+    //eventually want to only add the updated stuff to the adapter
 }
